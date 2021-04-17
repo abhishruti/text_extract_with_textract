@@ -16,6 +16,11 @@ We just need three libraries to execute the task
 >>import cv2
 >>
 >>import textract
+>>
+Sample output:
+Input image:
+![medakit-ltd-LmI4nW2PNcY-unsplash](https://user-images.githubusercontent.com/38774802/115117505-880aa880-9fbc-11eb-924a-819d6e3d7669.jpg)
+
 
 We first read the image with cv2.imread() and find the largest controur to crop the visiting card along its edges.
 Steps:
@@ -26,13 +31,22 @@ Steps:
 5) Finding contour
 6) cropping through the extreme contour
 
+Cropped image after contour detection:
+![cropped](https://user-images.githubusercontent.com/38774802/115117515-948f0100-9fbc-11eb-9f87-a55075f99026.png)
+
 Processing the cropped image:
 1) Grayscaling the cropped image
 2) OTSU binary thresholding
 3) Saving the obtained binary image with cv2.imwrite()
 
+Binary conversion:
+![letsee](https://user-images.githubusercontent.com/38774802/115117523-a07ac300-9fbc-11eb-86d8-e9c32deb1715.PNG)
+
 Extraction of text with Python Textract
 Since, the text after processing from Textract comes in binary format, We process the text,
+
+Extracted text:
+   a: Medakit           COVID-19 RAPID TEST  BECAUSE YOUR LIFE MATTERS  RESULTS IN 15 MINUTES 0c
 
 >>text=text[1:]
 >>
@@ -43,19 +57,6 @@ Since, the text after processing from Textract comes in binary format, We proces
 >>text = ''.join(text.split("\\x"))
 
 This removed unnecessary string and unicodes from the text.
-
-Sample output:
-Input image:
-![medakit-ltd-LmI4nW2PNcY-unsplash](https://user-images.githubusercontent.com/38774802/115117505-880aa880-9fbc-11eb-924a-819d6e3d7669.jpg)
-
-Cropped image after contour detection:
-![cropped](https://user-images.githubusercontent.com/38774802/115117515-948f0100-9fbc-11eb-9f87-a55075f99026.png)
-
-Binary conversion:
-![letsee](https://user-images.githubusercontent.com/38774802/115117523-a07ac300-9fbc-11eb-86d8-e9c32deb1715.PNG)
-
-Extracted text:
-   a: Medakit           COVID-19 RAPID TEST  BECAUSE YOUR LIFE MATTERS  RESULTS IN 15 MINUTES 0c
 
 
 Image credit: 
