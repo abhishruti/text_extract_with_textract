@@ -45,8 +45,6 @@ Binary conversion:
 Extraction of text with Python Textract
 Since, the text after processing from Textract comes in binary format, We process the text,
 
-Extracted text:
-   a: Medakit           COVID-19 RAPID TEST  BECAUSE YOUR LIFE MATTERS  RESULTS IN 15 MINUTES 0c
 
 >>text=text[1:]
 >>
@@ -57,6 +55,9 @@ Extracted text:
 >>text = ''.join(text.split("\\x"))
 
 This removed unnecessary string and unicodes from the text.
+
+Extracted text:
+   a: Medakit           COVID-19 RAPID TEST  BECAUSE YOUR LIFE MATTERS  RESULTS IN 15 MINUTES 0c
 
 
 Image credit: 
