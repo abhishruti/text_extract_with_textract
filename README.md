@@ -4,6 +4,7 @@ Text extraction with Python Textract
 Installing textract
 
 >>!apt-get install python-dev libxml2-dev libxslt1-dev antiword unrtf poppler-utils pstotext tesseract-ocr flac ffmpeg lame libmad0 libsox-fmt-mp3 sox libjpeg-dev swig libpulse-dev
+>>
 >>!pip install textract
 
 All other libraries we are using are on the latest release
@@ -11,7 +12,9 @@ All other libraries we are using are on the latest release
 We just need three libraries to execute the task
 
 >>from google.colab.patches import cv2_imshow
+>>
 >>import cv2
+>>
 >>import textract
 
 We first read the image with cv2.imread() and find the largest controur to crop the visiting card along its edges.
@@ -32,8 +35,11 @@ Extraction of text with Python Textract
 Since, the text after processing from Textract comes in binary format, We process the text,
 
 >>text=text[1:]
+>>
 >>text = ''.join(text.split("'"))
+>>
 >>text = ' '.join(text.split("\\n"))
+>>
 >>text = ''.join(text.split("\\x"))
 
 This removed unnecessary string and unicodes from the text.
